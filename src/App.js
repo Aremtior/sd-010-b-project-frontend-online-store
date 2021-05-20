@@ -13,6 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
+        <Header />
         <main className="App">
           <Switch>
             <Route

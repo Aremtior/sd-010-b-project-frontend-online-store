@@ -54,7 +54,6 @@ export default class CartItems extends Component {
 
   render() {
     const { products, totalPrice } = this.state;
-    // const totalStoragePrice = localStorage.getItem('total-price');
     return (
       <div>
         <div>
@@ -80,7 +79,6 @@ export default class CartItems extends Component {
         ))}
         <hr />
         <div className="finish">
-          {/* Requisito 12 botão de finalizar compra */}
           <Link to="/checkout">
             <button
               data-testid="checkout-products"

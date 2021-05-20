@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import AddToCart from '../components/AddToCart';
 import MyForm from '../components/MyForm';
-import Header from '../components/Header';
 
 class Details extends Component {
   constructor() {
@@ -53,7 +52,6 @@ class Details extends Component {
      </span>);
    return (
      <section>
-       <Header />
        <section>
          <Link to="/" style={ { textDecoration: 'none' } }>
            <button

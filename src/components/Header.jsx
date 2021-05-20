@@ -2,8 +2,28 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Header extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      totalItems: 0,
+    };
+  }
+
+  componentDidUpdate() {
+    this.updateState();
+  }
+
+  updateState = () => {
+    this.setState({
+      totalItems: localStorage.getItem('total-items-on-cart'),
+    });
+  }
+
   render() {
-    const localItems = localStorage.getItem('total-items-on-cart');
+    const { totalItems } = this.state;
+    const localItems = JSON.parse(localStorage.getItem('total-items-on-cart'));
+    const renderItems = localItems || totalItems;
     return (
       <nav className="cart-block">
         <h2>
@@ -15,9 +35,8 @@ class Header extends Component {
             alt="cart"
             width="100px"
           />
-          <span data-testid="shopping-cart-size">
-            {localItems || localStorage.setItem('total-items-on-cart', 2) }
-          </span>
+          <span data-testid="shopping-cart-size" />
+          {renderItems}
         </Link>
       </nav>
     );

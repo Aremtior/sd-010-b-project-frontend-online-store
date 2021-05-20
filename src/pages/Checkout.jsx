@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CheckoutForm from '../components/CheckoutForm';
-import Header from '../components/Header';
 
 export default class Checkout extends Component {
   renderProducts = () => {
@@ -19,7 +18,6 @@ export default class Checkout extends Component {
   render() {
     return (
       <main>
-        <Header />
         <section className="product-list">
           <h3>Revise seus produtos</h3>
           {this.renderProducts()}
