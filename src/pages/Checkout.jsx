@@ -36,7 +36,7 @@ export default class Checkout extends Component {
             <label htmlFor="boleto">
               <p>Boleto</p>
               <input type="radio" id="boleto" />
-              <span>&#128181;</span>
+              <span role="img" aria-label="money">&#128181;</span>
             </label>
           </div>
           <div>

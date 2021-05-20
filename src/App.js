@@ -28,7 +28,7 @@ function App() {
             />
             <Route
               exact
-              path="/details/:id/:title"
+              path="/details/:id/:title/:frete"
               render={ (props) => <Details { ...props } /> }
             />
             <Route

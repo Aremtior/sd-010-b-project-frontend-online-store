@@ -127,8 +127,18 @@ footer p {
   width: 500px;
 }
 
+.product-image {
+  align-items: center;
+  display: flex
+}
+
 .product-image img {
   height: 200px;
+  width: 200px;
+}
+
+/* detail page */
+.detail-top img {
   width: 200px;
 }
 

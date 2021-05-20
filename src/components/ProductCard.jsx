@@ -14,7 +14,15 @@ class ProductCard extends React.Component {
     /* troca o ponto para virgula nos centavos */
     /* https://stackoverflow.com/questions/13672106/jquery-replace-dot-to-comma-and-round-it/13672180 */
     const priceWithStyle = price.toFixed(2).toString().replace('.', ',');
-    const freteGratis = (<span data-testid="free-shipping">&#128722; Frete grátis</span>);
+    const freteGratis = (
+      <span
+        role="img"
+        aria-label="cart"
+        data-testid="free-shipping"
+      >
+        &#128722; Frete grátis
+
+      </span>);
     return (
       <section className="products-section">
         <section data-testid="product" className="product-box">
@@ -31,7 +39,8 @@ class ProductCard extends React.Component {
           <div>
             <AddToCart data-testid="product-add-to-cart" product={ product } />
             <Link
-              to={ `/details/${id}/${title.replace('%', '')}` }
+              to={ `/details/${id}/${title
+                .replace('%', '').replaceAll(/\//g, '')}/${frete}` }
             >
               <span data-testid="product-detail-link">VER DETALHES</span>
             </Link>
