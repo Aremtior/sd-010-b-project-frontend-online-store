@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Header extends Component {
   render() {
+    const localItems = localStorage.getItem('total-items-on-cart');
     return (
       <nav className="cart-block">
         <h2>
@@ -14,6 +15,9 @@ class Header extends Component {
             alt="cart"
             width="100px"
           />
+          <span data-testid="shopping-cart-size">
+            {localItems || localStorage.setItem('total-items-on-cart', 2) }
+          </span>
         </Link>
       </nav>
     );

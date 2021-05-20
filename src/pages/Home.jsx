@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 
 import CategoryBar from '../components/CategoryBar';
+import Header from '../components/Header';
 import ProductsList from '../components/ProductsList';
 import SearchArea from '../components/SearchArea';
 
@@ -56,6 +57,7 @@ class Home extends React.Component {
     const { products, isLoading, inputfilter, categoryfilter } = this.state;
     return (
       <div className="homepage">
+        <Header />
         <section className="categories-bar">
           <CategoryBar onChange={ this.onChangeCategoryHandle } />
         </section>

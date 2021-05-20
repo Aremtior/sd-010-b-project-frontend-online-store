@@ -12,7 +12,8 @@ export default class ItemCard extends Component {
 
   changeQuantity = (operator) => {
     const { product, calculateTotal } = this.props;
-    const productsOnCart = JSON.parse(localStorage.getItem('products-on-cart'));
+    const LOCAL_STORAGE_KEY = 'products-on-cart';
+    const productsOnCart = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     const findProduct = productsOnCart.map(
       (prod) => {
         if (prod.product.id === product.product.id) {
@@ -25,7 +26,7 @@ export default class ItemCard extends Component {
         return prod;
       },
     );
-    localStorage.setItem('products-on-cart', JSON.stringify(findProduct));
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(findProduct));
     if (operator === '+') {
       this.setState({
         quantity: product.quantity += 1,
@@ -37,6 +38,16 @@ export default class ItemCard extends Component {
       });
       calculateTotal();
     }
+    this.calculateTotalItems();
+  }
+
+  calculateTotalItems = () => {
+    const productOnCart = JSON.parse(localStorage.getItem('products-on-cart'));
+    const totalItems = productOnCart.reduce((accumulator, currentProduct) => {
+      accumulator += currentProduct.quantity;
+      return accumulator;
+    }, 0);
+    localStorage.setItem('total-items-on-cart', totalItems);
   }
 
   render() {

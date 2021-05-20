@@ -43,13 +43,27 @@ export default class AddToCart extends Component {
     }
   }
 
+  calculateTotalItems = () => {
+    const productOnCart = JSON.parse(localStorage.getItem('products-on-cart'));
+    const totalItems = productOnCart.reduce((accumulator, currentProduct) => {
+      accumulator += currentProduct.quantity;
+      return accumulator;
+    }, 0);
+    return localStorage.setItem('total-items-on-cart', totalItems);
+  }
+
+  onClickHandle = () => {
+    this.addToCart();
+    this.calculateTotalItems();
+  }
+
   render() {
     return (
       <div>
         <button
           { ...this.props }
           type="submit"
-          onClick={ () => this.addToCart() }
+          onClick={ () => this.onClickHandle() }
         >
           Adicionar ao Carrinho
         </button>

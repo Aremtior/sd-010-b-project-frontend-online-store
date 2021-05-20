@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CartItems from '../components/CartItems';
+import Header from '../components/Header';
 
 export default class Cart extends Component {
   storageUpdate = () => {
@@ -13,7 +14,7 @@ export default class Cart extends Component {
 
   emptyOrNot = () => {
     const cartLength = this.storageUpdate();
-    if (cartLength.length === 0) {
+    if (cartLength === null || cartLength.length === 0) {
       return true;
     }
     return false;
@@ -28,6 +29,7 @@ export default class Cart extends Component {
     );
     return (
       <div>
+        <Header />
         <Link to="/" style={ { textDecoration: 'none' } }>
           <button
             className="btn-search"
