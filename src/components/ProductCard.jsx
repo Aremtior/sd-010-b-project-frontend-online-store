@@ -40,7 +40,7 @@ class ProductCard extends React.Component {
             <AddToCart data-testid="product-add-to-cart" product={ product } />
             <Link
               to={ `/details/${id}/${title
-                .replace('%', '').replaceAll(/\//g, '')}/${frete}` }
+                .replace('%', '')}/${frete}` }
             >
               <span data-testid="product-detail-link">VER DETALHES</span>
             </Link>
